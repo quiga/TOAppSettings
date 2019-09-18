@@ -55,6 +55,37 @@
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
 }
 
+- (void)testDumpTypes {
+	
+	NSLog(@"int        : %s", @encode(int));
+	NSLog(@"NSInteger  : %s", @encode(NSInteger));
+	NSLog(@"NSUInteger : %s", @encode(NSUInteger));
+	NSLog(@"float      : %s", @encode(float));
+	NSLog(@"float *    : %s", @encode(float*));
+	NSLog(@"double     : %s", @encode(double));
+	NSLog(@"double *   : %s", @encode(double*));
+	NSLog(@"CGFloat    : %s", @encode(CGFloat));
+	NSLog(@"CGFloat *  : %s", @encode(CGFloat*));
+	NSLog(@"char       : %s", @encode(char));
+	NSLog(@"char *     : %s", @encode(char *));
+	NSLog(@"BOOL       : %s", @encode(BOOL));
+	NSLog(@"bool       : %s", @encode(bool));
+	NSLog(@"void       : %s", @encode(void));
+	NSLog(@"void *     : %s", @encode(void *));
+	
+	NSLog(@"NSObject * : %s", @encode(NSObject *));
+	NSLog(@"NSObject   : %s", @encode(NSObject));
+	NSLog(@"[NSObject] : %s", @encode(typeof([NSObject class])));
+	NSLog(@"NSError ** : %s", @encode(typeof(NSError **)));
+	NSLog(@"NSArray *           : %s", @encode(NSArray *));
+	NSLog(@"NSData *            : %s", @encode(NSData *));
+	NSLog(@"NSDate *            : %s", @encode(NSDate *));
+	NSLog(@"NSDictionary *      : %s", @encode(NSDictionary *));
+	NSLog(@"NSString *          : %s", @encode(NSString *));
+	NSLog(@"UIColor *           : %s", @encode(UIColor *));
+}
+
+
 // Test that it's possible to write settings to one instance, and then read back
 // the same settings in a separate instance
 - (void)testDefaultSettingsWriteAndRead
