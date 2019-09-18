@@ -85,10 +85,14 @@ static inline TOAppSettingsDataType TOAppSettingsDataTypeForProperty(const char 
     char propertyType = attributes[1];
     
     switch (propertyType) {
+		case 'i': return TOAppSettingsDataTypeInt;
         case 'q': return TOAppSettingsDataTypeInt;
         case 'd': return TOAppSettingsDataTypeDouble;
         case 'f': return TOAppSettingsDataTypeFloat;
         case 'B': return TOAppSettingsDataTypeBool;
+#if !(__LP64__)
+		case 'c': return TOAppSettingsDataTypeBool;
+#endif
         default: break;
     }
     
